@@ -11,5 +11,4 @@ def about():
     })
 
 if __name__ == '__main__':
-    # host='0.0.0.0' makes the app reachable from outside the container (via -p 5001:5001)
-    app.run(host='0.0.0.0', debug=True, port=5001)
+    app.run(host='0.0.0.0', debug=False, port=5001)
