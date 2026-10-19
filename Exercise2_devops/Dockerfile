@@ -1,5 +1,13 @@
-FROM python:3.8-slim
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+	PYTHONUNBUFFERED=1
+
 WORKDIR /app
-COPY . /app
-RUN pip install flask
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -r requirements.txt
+
+COPY app.py .
+
+EXPOSE 15000
 CMD ["python", "app.py"]
